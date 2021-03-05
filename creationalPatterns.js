@@ -66,6 +66,14 @@ class SUVFactory {
     }
 };
 
+// MIXINS PATTERN
+// add the function below after you create a car object
+let carMixin = {
+    revEngine() {
+        console.log(`The ${this.engine} engine is going VROOOM VROOOOOM!`)
+    }
+};
+
 // initialize the SUV factory
 const suvFactory = new SUVFactory();
 
@@ -88,3 +96,9 @@ console.log('civic', civic);
 console.log('cx5', cx5);
 console.log('myHonda', myHonda);
 console.log('myNewWhip', myNewWhip);
+
+// MIXINS PATTERN continued
+// add a function to the car object
+Object.assign(Car.prototype, carMixin);
+const miasNewCar = autoManufacturer("car", "honda");
+miasNewCar.revEngine();
